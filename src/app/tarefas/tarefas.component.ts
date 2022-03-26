@@ -6,9 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tarefas.component.css'],
 })
 export class TarefasComponent implements OnInit {
+  meuStorage = localStorage;
+
   tarefas: String[] = [];
   tarefa: string;
   quantidade: number;
+  qt: string;
 
   constructor() {
     this.quantidade = 0;
@@ -20,8 +23,11 @@ export class TarefasComponent implements OnInit {
     this.quantidade++;
     this.tarefas.push(this.tarefa);
 
-    //console.log(this.quantidade);
+    this.qt = this.quantidade.toString();
 
+    //console.log(this.quantidade);
+    localStorage.setItem(this.qt, tarefa);
+    //console.log(localStorage.getItem('3'));
     return this.tarefas;
   }
 
@@ -30,11 +36,14 @@ export class TarefasComponent implements OnInit {
   }
 
   removeTask(data: any) {
-    const index: number = this.tarefas.indexOf(data);
-
-    console.log(index);
+    let index: number = this.tarefas.indexOf(data);
+    console.log(index - 1);
     if (index !== -1) {
       this.tarefas.splice(index - 1, 1);
+      index = 0;
+    } else {
+      this.tarefas.splice(0, 1);
+      index = 0;
     }
   }
 }
