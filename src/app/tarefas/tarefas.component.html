@@ -7,9 +7,12 @@
 <br />
 <h4>{{ ListCount() }}</h4>
 
-<div>Lista de tarefas</div>
-<div *ngFor="let pc of ListCount()">
-  <div>{{ ListCount() }}</div>
-</div>
-
 <div></div>
+<table>
+  <tbody>
+    <tr *ngFor="let pc of ListCount()">
+      <td>{{ pc }}</td>
+      <td><button (click)="removeTask(tarefa)">Concluida</button></td>
+    </tr>
+  </tbody>
+</table>

@@ -20,12 +20,21 @@ export class TarefasComponent implements OnInit {
     this.quantidade++;
     this.tarefas.push(this.tarefa);
 
-    console.log(this.tarefas);
+    //console.log(this.quantidade);
 
     return this.tarefas;
   }
 
   ListCount() {
     return this.tarefas;
+  }
+
+  removeTask(data: any) {
+    const index: number = this.tarefas.indexOf(data);
+
+    console.log(index);
+    if (index !== -1) {
+      this.tarefas.splice(index - 1, 1);
+    }
   }
 }
