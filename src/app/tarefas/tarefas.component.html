@@ -1,0 +1,15 @@
+<h2>Tarefas</h2>
+<input type="text" [(ngModel)]="tarefa" />
+<br />
+<br />
+<button (click)="guardarLista(tarefa)">Adicionar</button>
+<br />
+<br />
+<h4>{{ ListCount() }}</h4>
+
+<div>Lista de tarefas</div>
+<div *ngFor="let pc of ListCount()">
+  <div>{{ ListCount() }}</div>
+</div>
+
+<div></div>
